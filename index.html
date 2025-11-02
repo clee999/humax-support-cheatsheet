@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>UK Support EV Charger Cheat Sheet (Humax EQ7 & MX7)</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+    h1 { color: #2E6DA4; }
+    h2 { color: #2E6DA4; margin-top: 30px; }
+    h3 { margin-top: 20px; }
+    ul { margin-left: 20px; }
+  </style>
+</head>
+<body>
+
+<h1>UK Support Cheat Sheet: Humax EQ7 & MX7 EV Chargers</h1>
+
+<p>This cheat sheet provides an overview of key features, glossary terms, FAQs, troubleshooting steps, and resources for the Humax EQ7 and MX7 EV chargers. It is designed to help UK support staff quickly find information and assist customers effectively.</p>
+
+
+<div class="script-box">
+<h2>📽️ Video Script: Humax MX7 Key Features</h2>
+<p><strong>Opening:</strong><br>
+"Let’s talk about the Humax MX7 — a smart EV charger that goes far beyond just topping up your battery. This charger brings future-ready power and full control to your home charging setup."
+</p>
+
+
+<p><strong>1. Dynamic Load Management:</strong><br>
+"It comes with built-in dynamic load management, which means it automatically balances energy use across your home in real-time. So if you’ve got solar panels or appliances running, it prevents overload and keeps everything running smoothly."
+</p>
+
+
+<p><strong>2. V2H Ready:</strong><br>
+"It’s vehicle-to-home ready — thanks to bidirectional charging, your EV can actually power your home in an emergency or during peak times. That’s real energy independence."
+</p>
+
+
+<p><strong>3. Ideal for Fleets:</strong><br>
+"For fleet users, the MX7 makes tracking and charging reliable at home. It has built-in vehicle ID, so only authorised fleet vehicles can charge — making reimbursements and access control effortless."
+</p>
+
+
+<p><strong>4. Smart Control via App:</strong><br>
+"And with the Humax app, you’re in control no matter where you are. You can start or stop charging remotely, schedule charge times, and lock the charger when you're away — all from your phone."
+</p>
+
+
+<p><strong>Closing:</strong><br>
+"So whether you're looking for smart energy use, fleet control, or future-proof charging, the MX7 is built to power your journey — and your home."
+</p>
+</div>
+
+
+<!-- Existing cheat sheet sections would follow below -->
+<h2>Key Features</h2>
+<ul>
+  <li><strong>Humax EQ7 (7.4&nbsp;kW, Single Phase):</strong> Wi-Fi & Bluetooth connectivity; App controlled; IP65 weatherproof; Durable ABS casing; Tethered Type 2 cable (4m or 7m); RFID card support for access; Auto Solar (solar charging integration); Digital security lock; Tamper-protection switch; OZEV compliant; 3-year warranty.:contentReference[oaicite:0]{index=0}:contentReference[oaicite:1]{index=1}</li>
+  <li><strong>Humax MX7 (7.4&nbsp;kW, Single Phase):</strong> All features of EQ7 plus Ethernet and optional 4G connectivity; Future-ready with built-in ISO 15118 for <em>Vehicle-to-Grid (V2G)</em> and <em>Vehicle-to-Home (V2H)</em> capability (once supported by vehicles and grid); Swappable front fascia for customization; Smart scheduling via app; Integrated PLC module for intelligent charging; Built-in temperature sensor; IP54 weatherproof (for socket model) with high-impact body; 5-year warranty.:contentReference[oaicite:2]{index=2}:contentReference[oaicite:3]{index=3}</li>
+</ul>
+
+<div class="commissioning-box">
+<h2>⚙️ Commissioning the Charger – Including AP Mode</h2>
+<p><strong>What is AP Mode?</strong> It stands for <em>Access Point</em>. When a charger is in AP mode, it creates its own Wi‑Fi hotspot. You can connect your phone or tablet directly to it without needing the customer's home Wi‑Fi.</p>
+
+
+<h3>When to Use AP Mode:</h3>
+<ul>
+<li>Wi‑Fi is unavailable or unreliable</li>
+<li>Initial setup during installation</li>
+<li>Manual configuration before customer app login</li>
+</ul>
+
+
+<h3>Steps to Use AP Mode (MX7 or EQ7):</h3>
+<ol>
+<li>Power on the charger and wait for the LED ring to indicate commissioning mode.</li>
+<li>Go to Wi‑Fi settings on your phone.</li>
+<li>Connect to the network named <code>HUMAX_XXXXXX</code> or <code>MX7_XXXXXX</code> (matches serial number).</li>
+<li>Enter password if asked (usually <code>admin123</code> or shown on the label).</li>
+<li>Open a browser and type <code>http://192.168.4.1</code></li>
+<li>Enter the 4-digit PIN from the sticker on the charger.</li>
+<li>Configure:
+<ul>
+<li>Wi‑Fi or Ethernet settings (optional)</li>
+<li>Charger name</li>
+<li>Operating mode (Plug & Charge, RFID, or Smart)</li>
+<li>Max charging current (based on install limits)</li>
+<li>Enable CT Clamp if used</li>
+<li>Server URL: <code>wss://uhc-server.humaxcharging.com:443</code></li>
+</ul>
+</li>
+<li>Save and apply settings. The charger will reboot and try to connect.</li>
+</ol>
+
+
+<h3>Commissioning Without Internet (Offline Setup)</h3>
+<ul>
+<li>Use AP mode to configure all settings on-site.</li>
+<li>Skip Wi‑Fi setup if needed — charger will operate in standalone mode.</li>
+<li>The customer can connect it to the internet later using the Humax EV app.</li>
+<li>Offline operation will still allow charging using default mode (Plug & Charge or RFID).</li>
+</ul>
+
+
+<h3>Key Differences:</h3>
+<ul>
+<li><strong>MX7:</strong> Supports AP mode, Ethernet, and optional 4G.</li>
+<li><strong>EQ7:</strong> Supports AP mode and Wi‑Fi only.</li>
+</ul>
+</div>
+
+<h2>Glossary of Terms</h2>
+<ul>
+  <li><strong>Load Balancing (Dynamic Load Management):</strong> A system to distribute or limit electrical load to prevent overloading the main supply. The charger uses a <em>CT clamp</em> (Current Transformer) to monitor household consumption and adjust EV charging current accordingly, ensuring the total demand stays within safe limits and preventing main fuse trips.:contentReference[oaicite:4]{index=4} This allows multiple appliances or chargers to operate without exceeding the supply capacity.</li>
+  <li><strong>CT Clamp:</strong> A sensor clipped around the mains supply cable that measures current. Humax chargers use a CT clamp for dynamic load balancing (often marketed as a "Power Boost" feature), by detecting how much current the home is using and adjusting the charger's output to avoid overload.:contentReference[oaicite:5]{index=5}</li>
+  <li><strong>V2G (Vehicle-to-Grid):</strong> Technology enabling an electric vehicle to send power back to the grid. A V2G-capable setup lets an EV discharge energy to the grid, potentially reducing electricity costs or providing grid support.:contentReference[oaicite:6]{index=6} <em>Note:</em> The MX7 hardware is V2G-ready, but actual use of V2G depends on vehicle support and DNO/grid approvals:contentReference[oaicite:7]{index=7}.</li>
+  <li><strong>V2H (Vehicle-to-Home):</strong> Using the EV’s battery to power your home. During an outage or peak-rate times, a V2H-capable system can draw from the car to supply home electrical needs.:contentReference[oaicite:8]{index=8} (MX7 supports this in hardware via ISO 15118, but functionality requires vehicle and regulatory support:contentReference[oaicite:9]{index=9}.)</li>
+  <li><strong>V2L (Vehicle-to-Load):</strong> Powering external devices directly from the EV’s battery (using the car like a portable power bank for tools, camping, etc.). Many EVs support V2L via special outlets; it doesn’t require a special charger.:contentReference[oaicite:10]{index=10}</li>
+  <li><strong>ISO 15118:</strong> An international communication standard between EVs and chargers, enabling advanced features like Plug & Charge and bidirectional charging. The MX7 includes an ISO 15118-compliant module for future V2G/V2H support.:contentReference[oaicite:11]{index=11}</li>
+  <li><strong>OZEV Compliant:</strong> Refers to meeting the UK Office for Zero Emission Vehicles requirements (for home charger grant schemes and smart charging). Humax chargers are OZEV compliant:contentReference[oaicite:12]{index=12}, indicating they meet safety and smart functionality standards (e.g., scheduled charging, remote control).</li>
+  <li><strong>MCB (Miniature Circuit Breaker):</strong> A protective device that trips when current is too high, preventing overload. EV chargers typically use a dedicated 32&nbsp;A MCB (Type C curve is often used to handle inrush currents:contentReference[oaicite:13]{index=13}) in the consumer unit.</li>
+  <li><strong>RCD (Residual Current Device):</strong> A safety device that cuts power if it detects leakage current to earth, preventing electric shock. Charger circuits use a 30&nbsp;mA Type A RCD (sensitive to AC leakage) in many cases:contentReference[oaicite:14]{index=14}. (If the charger lacks DC leakage detection, a Type B RCD or equivalent protection is required.)</li>
+  <li><strong>RCBO:</strong> A combined unit of an MCB and RCD in one device. Many EV charger installs use a 32&nbsp;A RCBO (Type A) dedicated to the charger, providing both over-current and earth-fault protection in a single component.</li>
+  <li><strong>SPD (Surge Protection Device):</strong> Protects the electrical system from voltage spikes (transient surges). Recent regulations often require SPDs; an EV charger installation may include an SPD in the consumer unit to shield the charger and other circuits from surges.</li>
+  <li><strong>DNO Notification/Approval:</strong> In the UK, the Distribution Network Operator must be notified when a home EV charger is installed (under G98 regulations for <7.4 kW). For technologies like V2G, additional DNO approval (G99/G100) is needed:contentReference[oaicite:15]{index=15} to ensure safety and grid stability.</li>
+  <li><strong>OCPP (Open Charge Point Protocol):</strong> A standard for network communication with chargers (used in public/commercial charging networks). Humax home chargers primarily use a proprietary app platform; OCPP is more relevant for integrating commercial chargers into third-party management systems (not a listed feature of EQ7/MX7).</li>
+  <li><strong>RFID Card:</strong> A Radio-Frequency ID card used to authenticate or start charging. Humax chargers include RFID cards that can lock/unlock the charger. Swiping the card on the unit allows authorized use (the charger’s light will pulse yellow on a successful swipe):contentReference[oaicite:16]{index=16}.</li>
+  <li><strong>IP65 / IP54 (Ingress Protection):</strong> Ratings that indicate dust/water resistance of the charger enclosure. IP65 (EQ7) means dust-tight and protected against low-pressure water jets:contentReference[oaicite:17]{index=17}. IP54 (MX7 socket model) means dust-protected and resistant to splashing water:contentReference[oaicite:18]{index=18}. Both models are suitable for outdoor installation (rainproof), but IP65 offers slightly higher water protection.</li>
+  <li><strong>kW vs kWh:</strong> kW (kilowatt) is a unit of power (rate of energy transfer). 7.4 kW is the maximum charging power of these units. kWh (kilowatt-hour) is a unit of energy (power × time) – for example, delivering 7.4 kW for one hour equals 7.4 kWh of energy. EV battery sizes are rated in kWh (e.g., 50 kWh battery), which indicates how much energy they can store.</li>
+</ul>
+
+<h2>FAQs (Frequently Asked Questions)</h2>
+
+<h3>General Questions</h3>
+<ul>
+  <li><strong>What do the light ring colors on the charger indicate?</strong><br>
+    &ndash; <em>Ready to charge:</em> Green pulse every ~3 seconds (standby mode, charger is ready).<br>
+    &ndash; <em>Charging in progress:</em> Green blinking every second (the EV is currently charging).<br>
+    &ndash; <em>Fully charged:</em> Solid green (the EV’s battery is full).<br>
+    &ndash; <em>RFID card detected:</em> Yellow pulse (an RFID swipe was recognized).<br>
+    &ndash; <em>Warning:</em> Continuous yellow (warning condition; consult the manual for details).<br>
+    &ndash; <em>Fault:</em> Red (solid or blinking red indicates a fault; contact support if this persists).:contentReference[oaicite:19]{index=19}:contentReference[oaicite:20]{index=20}</li>
+
+  <li><strong>How long does it take to charge an electric vehicle on these chargers?</strong><br>
+    Charging time depends on the vehicle and charger level. Humax home chargers are Level 2 (7.4 kW) AC chargers:<br>
+    &ndash; Using a 7.4 kW charger (Level 2) typically takes around **4–8 hours** to fully charge a medium-size EV (from empty to full), depending on the battery capacity.:contentReference[oaicite:21]{index=21}<br>
+    &ndash; By comparison, a standard 3-pin plug (Level 1 at ~2.3 kW) can take well over **24 hours** for the same task (very slow).<br>
+    &ndash; A public DC fast charger (Level 3) can charge to ~80% in roughly **30 minutes**, but those use DC charging which is not applicable to home units.:contentReference[oaicite:22]{index=22}</li>
+
+  <li><strong>Are Humax chargers weatherproof (can they be installed outdoors)?</strong><br>
+    Yes. The EQ7 has an IP65 rating and the MX7 has IP54 (socket model), meaning both are designed for outdoor use and can withstand rain and dust. It’s recommended to install them out of direct excessive exposure if possible (e.g., avoid direct high-pressure water jets on the unit), but normal UK weather is fine.</li>
+
+  <li><strong>Do I need a professional electrician to install the charger, or can I do it myself?</strong><br>
+    You **must use a qualified installer**. EV chargers require connection to your electrical supply with proper safety devices and compliance to regulations. A certified electrician will install a dedicated circuit (with the correct MCB/RCD protections), run cabling safely, and handle DNO notification. Professional installation is also typically required to maintain the warranty and ensure safe operation.:contentReference[oaicite:23]{index=23}</li>
+
+  <li><strong>What is included in a standard installation package?</strong><br>
+    A typical standard installation in the UK covers:<br>
+    &ndash; Mounting the charger on a wall (brick or sturdy surface) near your parking spot.<br>
+    &ndash; Up to a set length of cabling (often ~5–7 meters) from your consumer unit to the charger, neatly clipped or in conduit.<br>
+    &ndash; Fitting a new dedicated 32 A circuit breaker (and RCD/RCBO) in your consumer unit for the charger, plus any required isolator switch.<br>
+    &ndash; Drilling through one wall if needed for the cable run.<br>
+    &ndash; Installation of a CT clamp on your mains (for load balancing), and setup of a Power Boost or smart charging meter if applicable.:contentReference[oaicite:24]{index=24}:contentReference[oaicite:25]{index=25}<br>
+    &ndash; Full testing and certification of the charger and electrical work, and a demonstration of the charger's functions and the smartphone app to the customer.:contentReference[oaicite:26]{index=26}<br>
+    (Additional costs may apply if extra work is required, like longer cable runs, trenching, three-phase setup, etc.)</li>
+
+  <li><strong>What should I do if the charger’s light is red or it isn’t working properly?</strong><br>
+    A red fault light indicates an error. First, try to reset the charger by powering it off (via the isolator or breaker) for 10 seconds and then turning it back on. If the red light returns or it still doesn’t work:<br>
+    &ndash; Check the app for any error messages or notifications.<br>
+    &ndash; Ensure the charging cable is properly connected and not damaged.<br>
+    &ndash; If you just updated firmware or changed a setting, it might be related &ndash; contact support for guidance.<br>
+    &ndash; Otherwise, **contact Humax support** (UK: 0344&nbsp;318&nbsp;8800 or uk.support@humaxcharging.com) for further assistance.:contentReference[oaicite:27]{index=27} Do not continue using the charger while the fault light is on.</li>
+
+  <li><strong>Why did my charging session stop or not start at the scheduled time?</strong><br>
+    If a scheduled charge didn’t start, or a session stopped unexpectedly:<br>
+    &ndash; Check if you have a charging schedule set in the Humax app (e.g., to charge during off-peak hours). The charger will only work during the scheduled times unless overridden.<br>
+    &ndash; Ensure the vehicle’s own charging timer (if any) is off or aligned with the same schedule. Some EVs allow scheduling which can conflict if not synced.<br>
+    &ndash; If you have solar smart charging enabled, the charger might be waiting for excess solar power (if little or no surplus solar, it may pause charging).<br>
+    &ndash; Power management: the charger could have paused due to dynamic load balancing (e.g., if your home was using too much power at that moment). It will resume when it's safe.<br>
+    &ndash; Finally, check for any error lights on the charger or messages in the app that might indicate a fault or connectivity issue.</li>
+
+  <li><strong>The charger isn’t connecting to Wi-Fi or the app &ndash; how can I fix this?</strong><br>
+    If the charger has trouble connecting or staying connected:<br>
+    &ndash; Make sure the Wi-Fi network name and password were entered correctly during setup (2.4 GHz Wi-Fi is typically required; 5 GHz networks might not work on some IoT devices).<br>
+    &ndash; Check the Wi-Fi signal strength at the charger’s location. If it’s weak, you might need a Wi-Fi extender or to use Ethernet (MX7 has an Ethernet port) for a stable connection.<br>
+    &ndash; Power cycle the charger and your router. Sometimes a simple reboot can resolve connectivity issues.<br>
+    &ndash; If using the app via Bluetooth setup, stand near the charger. You may need to re-initiate setup mode (consult the manual for how to reset network settings).<br>
+    &ndash; Ensure your phone is running the latest version of the Humax EV app. If problems persist, contact support or consult the networking section of the user manual for further troubleshooting.</li>
+
+  <li><strong>What is the difference between the EQ7 and MX7 models?</strong><br>
+    Both are smart 7.4 kW home chargers with similar core functionality, but there are some key differences:
+    <ul>
+      <li>MX7 is hardware-ready for V2G/V2H (bidirectional charging via ISO 15118), whereas the EQ7 is not V2G-capable. <!--:contentReference[oaicite:28]{index=28}--></li>
+      <li>MX7 has a swappable front cover (different color/finish fascias available), while EQ7 has a fixed design. <!--:contentReference[oaicite:29]{index=29}--></li>
+      <li>MX7 includes a 5-year warranty, versus a 3-year warranty for the EQ7 (when registered). <!--:contentReference[oaicite:30]{index=30}:contentReference[oaicite:31]{index=31}--></li>
+      <li>MX7 offers additional connectivity options (Ethernet port and optional 4G module) in addition to Wi-Fi/Bluetooth; the EQ7 supports Wi-Fi/Bluetooth only. <!--:contentReference[oaicite:32]{index=32}:contentReference[oaicite:33]{index=33}--></li>
+      <li>EQ7 is rated IP65 (more water-resistant), whereas the MX7 (socket version) is rated IP54. <!--:contentReference[oaicite:34]{index=34}:contentReference[oaicite:35]{index=35}--></li>
+    </ul>
+  </li>
+</ul>
+
+<h3>V2G and Future Technology (MX7)</h3>
+<ul>
+  <li><strong>Can I use V2G or V2H with the MX7 now?</strong><br>
+    Not at this time. The MX7 has the necessary hardware (V2G/V2H-ready), but **vehicle manufacturers and energy providers have not yet enabled V2G/V2H** for AC home chargers. In the UK, both the car and charger would need certification (DNO approval under G99/G100) before V2G/V2H can be used:contentReference[oaicite:36]{index=36}. Once the ecosystem is ready (car firmware, grid approval, and a software update from Humax), the MX7’s V2G/V2H functionality can be activated.</li>
+
+  <li><strong>What will I need to enable V2G/V2H in the future?</strong><br>
+    You will need:
+    <ul>
+      <li>An electric vehicle that supports bidirectional (V2G/V2H) charging and the ISO 15118 protocol (several upcoming models will support this).</li>
+      <li>The Humax MX7 charger (or another V2G-capable charger) with updated firmware enabling V2G/V2H functionality when available.</li>
+      <li>Approval from your electricity provider/DNO to feed energy back to the grid (when V2G is officially launched, there will be processes to register your charger/EV for it).</li>
+      <li>Possibly enrollment in a specific energy tariff or program that supports energy export (to earn credit or optimize use of energy).</li>
+    </ul>
+    Essentially, the hardware is in place with MX7, but software and regulatory frameworks need to catch up before you can use V2G/V2H.</li>
+
+  <li><strong>Does the MX7 support three-phase or 22 kW charging?</strong><br>
+    No – both the EQ7 and MX7 are single-phase 7.4 kW (32 A) max, designed for typical UK residential supply (single-phase). They cannot output 11 kW or 22 kW (which require three-phase power). For higher power or three-phase charging, other models or commercial units would be needed (Humax’s current home models focus on single-phase installations).</li>
+</ul>
+
+<h3>Troubleshooting & Support Tips</h3>
+<ul>
+  <li><strong>Basic Reset:</strong> If the charger is unresponsive or shows errors, turn off its power supply (isolation switch or breaker) for 10 seconds, then turn it back on. This can clear many temporary faults or communication issues.</li>
+  <li><strong>RFID Access:</strong> If a user is unable to start a charge, check if RFID authentication is enabled (the unit might require the card). A quick yellow flash on swipe means the card was accepted. If the card is lost, advise obtaining a replacement or disabling RFID locking via the app (if possible) until a new card is set up.</li>
+  <li><strong>Charger Output Limiting:</strong> If the charger isn’t delivering full power:
+    <ul>
+      <li>Verify the <em>dynamic load balancing</em> isn’t intentionally limiting current (e.g., if other loads in the house are high, the charger will self-regulate).</li>
+      <li>Check the car’s settings &ndash; some EVs let you limit max charging current or have eco-charging modes enabled.</li>
+      <li>Look at the supply voltage: at 230 V a 32 A charger gives ~7.4 kW, but if your local voltage is lower (e.g., 220 V), the max kW will be slightly lower (~7.0 kW).</li>
+      <li>If using an extension or adapter (not recommended), that can cause voltage drop or heat – always plug the EV cable directly into the charger’s socket/tether.</li>
+    </ul>
+  </li>
+  <li><strong>Firmware Updates:</strong> Periodically check if there’s a firmware update for the charger (via the Humax app or support announcements). Keeping firmware up-to-date can resolve known issues and ensure compatibility with the latest app features or vehicle software.</li>
+  <li><strong>Contacting Support:</strong> For any issue not easily resolved, the UK support line (0344&nbsp;318&nbsp;8800) and email (uk.support@humaxcharging.com) are available Mon–Fri 9:00–17:30. Having the charger’s serial number and the Humax app logs (if possible) ready will help speed up troubleshooting.</li>
+</ul>
+
+<div class="feature-box">
+<h2>🔄 How CT Clamp Works (Dynamic Load Balancing)</h2>
+<p><strong>What is a CT Clamp?</strong> A Current Transformer clamp is a small device that clips onto your home's main live cable (usually near your electric meter).</p>
+<p><strong>What does it do?</strong> It measures how much electricity your house is using and sends that info to the charger.</p>
+<p><strong>Why does that matter?</strong> It lets the charger automatically adjust its power output — so it never overloads your system.</p>
+<ul>
+<li>✅ If your home is using a lot of electricity (e.g., oven + shower), the charger will slow down to protect the fuse.</li>
+<li>✅ When usage drops, the charger speeds up again automatically.</li>
+<li>✅ Essential for homes with 60A or 100A main fuses.</li>
+<li>✅ Also supports Solar Matching — the charger can read surplus solar power and only charge when it's available.</li>
+</ul>
+
+
+<p><strong>Installation Tip:</strong> The clamp must face the right way — the arrow on it should point from the meter to the consumer unit.</p>
+</div>
+
+<h2>Resources & Links</h2>
+<ul>
+  <li><a href="https://humaxcharging.com/uk/resources/customer-support/" target="_blank">Humax EV Charging Support Hub (UK)</a> – Official support resources (FAQs, guides, ticket submission).</li>
+  <li><a href="https://humaxcharging.com/uk/supporthub/downloads-spec-manual/" target="_blank">Humax Charger Manuals & Downloads</a> – User manuals and installation guides (PDF downloads) for Humax EQ7/MX7 (login may be required).</li>
+  <li><a href="https://humaxcharging.com/uk/ev-chargers/home-chargers/mx7/" target="_blank">Humax MX7 Product Page</a> – Official product specifications and features overview for MX7.</li>
+  <li><a href="https://humaxcharging.com/uk/ev-chargers/home-chargers/eq7/" target="_blank">Humax EQ7 Product Page</a> – Official product specifications and features overview for EQ7.</li>
+  <li><a href="https://humaxdirect.co.uk/products/humax-eq7-smart-ev-charger-tethered" target="_blank">Humax EQ7 on Humax Direct</a> – Retail page (for reference, includes feature highlights and FAQ).</li>
+  <li><a href="https://global.humaxdigital.com/humax-to-launch-ev-home-chargers-in-european-market/" target="_blank">Humax Press Release (2023)</a> – Announcement of Humax home chargers (mentions solar charging and load balancing functions).:contentReference[oaicite:37]{index=37}</li>
+</ul>
+
+<h3>Video Tutorials & Demos</h3>
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=jzhitCYd62s" target="_blank">Introducing Humax MX7 – Future-Ready Smart Charger</a> (official product intro highlighting V2G readiness, solar integration, etc.).</li>
+  <li><a href="https://www.youtube.com/watch?v=p_idZC1TVBI" target="_blank">Humax 7.4 kW Home Charger Installation Guide</a> – Step-by-step video showing how the charger is installed and set up (useful for understanding installation process).</li>
+  <li><a href="https://www.youtube.com/watch?v=214fXuDbV1k" target="_blank">Humax MX7 EV Charger FAQs Video</a> – A Q&A style video covering common questions (warranty, weatherproofing, compatibility, etc.).</li>
+  <li><a href="https://www.youtube.com/@HumaxEVCharging" target="_blank">Humax EV Charging YouTube Channel</a> – More videos on using the chargers, app features, and customer testimonials.</li>
+</ul>
+
+<p style="font-size: 0.9em; color: gray;"><em>Note:</em> This cheat sheet is for internal use by the UK support team. Always refer to the latest official Humax documentation and guidance for the most accurate and up-to-date information.</p>
+
+<h2>Manuals & Guides (PDF)</h2>
+<ul>
+<li><a href="https://humaxcharging.com/uk/wp-content/uploads/2025/08/MX7_User-Manual_250611_compressed.pdf" target="_blank">MX7 User Manual</a></li>
+<li><a href="https://humaxcharging.com/uk/wp-content/uploads/2025/08/Humax_installer-commissioning-guide.pdf" target="_blank">Installer Commissioning Guide</a></li>
+<li><a href="https://kelvelec.co.uk/wp-content/uploads/2024/11/Humax-EV-Home-charger-Installation-guide_EN.pdf" target="_blank">CT Clamp & Installation Guide</a></li>
+</ul>
+
+
+<h2>YouTube Videos</h2>
+<ul>
+<li><a href="https://www.youtube.com/@humaxcharging" target="_blank">Humax Official YouTube Channel</a></li>
+</ul>
+
+
+<h3>MX7: Product Overview</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jzhitCYd62s" title="Humax MX7 Overview" frameborder="0" allowfullscreen></iframe>
+
+
+<h3>EQ7/MX7: Installation Guide</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/p_idZC1TVBI" title="Installation Guide" frameborder="0" allowfullscreen></iframe>
+
+
+<h3>MX7: FAQ Video</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/214fXuDbV1k" title="Humax FAQ" frameborder="0" allowfullscreen></iframe>
+
+
+<h3>MX7/EQ7 App Features Walkthrough</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/91jN79FUvQU" title="App Features" frameborder="0" allowfullscreen></iframe>
+
+
+<p style="font-size: 0.9em; color: gray;"><em>Note:</em> This cheat sheet is for internal use by the UK support team. Always refer to the latest official Humax documentation and guidance for the most accurate and up-to-date information.</p>
+</body>
+</html>
